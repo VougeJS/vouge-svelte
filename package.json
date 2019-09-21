@@ -1,6 +1,7 @@
 {
   "name": "@vouge/vouge-svelte",
   "description": "Vouge-svelte is Web UI Library, focus on the newest CSS trends, based on Svelte.",
+  "version": "0.0.2",
   "svelte": "src/index.js",
   "svelte.root": "src",
   "module": "index.mjs",
