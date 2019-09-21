@@ -1,5 +1,6 @@
 {
   "name": "@vouge/vouge-svelte",
+  "description": "Vouge-svelte is Web UI Library, focus on the newest CSS trends, based on Svelte.",
   "svelte": "src/index.js",
   "svelte.root": "src",
   "module": "index.mjs",
@@ -16,11 +17,25 @@
   },
   "keywords": [
     "svelte",
-    "vouge"
+    "vouge",
+    "javascript",
+    "ui",
+    "library",
+    "svelte-components"
   ],
   "files": [
     "src",
     "index.mjs",
     "index.js"
-  ]
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/VougeJS/vouge-svelte#readme",
+  "author": "Adam Jaworski",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VougeJS/vouge-svelte.git"
+  },
+  "bugs": {
+    "url": "https://github.com/VougeJS/vouge-svelte/issues"
+  }
 }
