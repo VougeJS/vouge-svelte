@@ -23,24 +23,25 @@ const Events = [
  *
  *      include: [ 'customevent' ] <-- List of events to include for forwarding.
  *
- *      only: [ 'focus', 'blur' ] <-- Only these events will be forwarded if appears in the list.
+ *      only: [ 'focus', 'blur' ] <-- Only these events will be forwarded.
  *  };
  */
-export function forwardEvents(node, { exclude, only, include } = {}) {
+export function forwardEvents(node, { component, exclude, only, include } = {}) {
     let ForwardedEvents = [];
-    const forwardEvent = e => bubble(parameters.component, e);
+    /** @type {string[]} */
+    let EventsToForward = [];
 
-    let IncludedEvents = (parameters.include) ? [ ...parameters.include ] : [];
-    let EventsToForward = [ ...Events, ...IncludedEvents ];
+    const forwardEvent = e => bubble(component, e);
 
-    // Exclude events from forwarding
-    if (parameters.exclude) {
-        EventsToForward = EventsToForward.filter(event => !parameters.exclude.includes(event));
-    }
+    if (only) {
+        EventsToForward = only;
+    } else {
+        EventsToForward = [ ...Events, ...(include || []) ];
 
-    // Forward only these events
-    if (parameters.only) {
-        EventsToForward = EventsToForward.filter(event => parameters.only.includes(event));
+        // Exclude events from forwarding
+        if (exclude) {
+            EventsToForward = EventsToForward.filter(event => !exclude.includes(event));
+        }
     }
 
     // Remove all duplicated entries
