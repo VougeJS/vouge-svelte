@@ -1,4 +1,11 @@
 <script>
+    import { forwardEvents } from '../../utils/forwardEvents';
+    import { current_component } from 'svelte/internal';
+
+    let ForwardEventsOptions = {
+        component: current_component,
+    };
+
     /**
      * @type { ('primary', 'secondary', 'success') }
      */
@@ -26,6 +33,6 @@
     }
 </style>
 
-<button class="{classNames}">
+<button class="{classNames}" use:forwardEvents="{{...ForwardEventsOptions}}">
     <slot></slot>
 </button>
