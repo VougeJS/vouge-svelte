@@ -26,7 +26,7 @@ const Events = [
  *      only: [ 'focus', 'blur' ] <-- Only these events will be forwarded if appears in the list.
  *  };
  */
-export function forwardEvents(node, parameters) {
+export function forwardEvents(node, { exclude, only, include } = {}) {
     let ForwardedEvents = [];
     const forwardEvent = e => bubble(parameters.component, e);
 
